@@ -100,5 +100,24 @@ fn main() {
         ],
     );
 
+    let charizard = Pokemon::new(
+        "Charizard".to_string(),
+        50,
+        78,
+        84,
+        78,
+        100,
+        109,
+        85,
+        vec![Type::Fire, Type::Flying],
+        vec![
+            Move::new("Flamethrower".to_string(), 90, 100, Type::Fire),
+            Move::new("Fire Blast".to_string(), 110, 85, Type::Fire),
+            Move::new("Air Slash".to_string(), 75, 95, Type::Flying),
+            Move::new("Dragon Claw".to_string(), 80, 100, Type::Dragon),
+        ],
+    );
+
     println!("{:#?}", espeon);
+    println!("{:#?}", charizard);
 }
