@@ -17,7 +17,6 @@ impl Move {
     }
 }
 
-
 #[derive(Debug)]
 pub struct Pokemon {
     pub name: String,
