@@ -61,7 +61,7 @@ impl Pokemon {
 }
 
 fn main() {
-    let Espeon = Pokemon::new(
+    let espeon = Pokemon::new(
         "Espeon".to_string(),
         50,
         65,
@@ -79,5 +79,5 @@ fn main() {
         ],
     );
 
-    println!("{:#?}", Espeon);
+    println!("{:#?}", espeon);
 }
