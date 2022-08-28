@@ -83,13 +83,13 @@ impl Pokemon {
 
 #[derive(Debug)]
 struct Trainer {
-    name: &'static str,
+    name: String,
     team: Vec<Pokemon>,
     money: i64,
 }
 
 impl Trainer {
-    pub fn new(name: &'static str, team: Vec<Pokemon>, money: i64) -> Self {
+    pub fn new(name: String, team: Vec<Pokemon>, money: i64) -> Self {
         Self { name, team, money }
     }
 }
@@ -204,7 +204,7 @@ fn main() {
     );
 
     let ash = Trainer::new(
-        "Ash",
+        "Ash".to_string(),
         vec![espeon, charizard, pikachu, totodile, breloom, snorlax],
         1000,
     );
