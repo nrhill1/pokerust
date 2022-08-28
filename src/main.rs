@@ -131,6 +131,81 @@ fn main() {
         ],
     );
 
-    println!("{:#?}", espeon);
-    println!("{:#?}", charizard);
+    let pikachu = Pokemon::new(
+        "Pikachu".to_string(),
+        50,
+        35,
+        55,
+        40,
+        90,
+        50,
+        50,
+        vec![Type::Electric],
+        vec![
+            Move::new("Thunderbolt".to_string(), 90, 100, Type::Electric),
+            Move::new("Thunder".to_string(), 110, 70, Type::Electric),
+            Move::new("Thunder Punch".to_string(), 75, 100, Type::Electric),
+            Move::new("Volt Tackle".to_string(), 120, 100, Type::Electric),
+        ],
+    );
+
+    let totodile = Pokemon::new(
+        "Totodile".to_string(),
+        50,
+        50,
+        65,
+        64,
+        43,
+        44,
+        48,
+        vec![Type::Water],
+        vec![
+            Move::new("Waterfall".to_string(), 80, 100, Type::Water),
+            Move::new("Hydro Pump".to_string(), 110, 80, Type::Water),
+            Move::new("Ice Fang".to_string(), 65, 95, Type::Ice),
+            Move::new("Crunch".to_string(), 80, 100, Type::Dark),
+        ],
+    );
+
+    let breloom = Pokemon::new(
+        "Breloom".to_string(),
+        50,
+        60,
+        130,
+        80,
+        70,
+        60,
+        60,
+        vec![Type::Grass, Type::Fighting],
+        vec![
+            Move::new("Mach Punch".to_string(), 40, 100, Type::Fighting),
+            Move::new("Dynamic Punch".to_string(), 100, 50, Type::Fighting),
+            Move::new("Bullet Seed".to_string(), 25, 100, Type::Grass),
+            Move::new("Focus Blast".to_string(), 120, 70, Type::Fighting),
+        ],
+    );
+
+    let snorlax = Pokemon::new(
+        "Snorlax".to_string(),
+        50,
+        160,
+        110,
+        65,
+        30,
+        65,
+        110,
+        vec![Type::Normal],
+        vec![
+            Move::new("Body Slam".to_string(), 85, 100, Type::Normal),
+            Move::new("Earthquake".to_string(), 100, 100, Type::Ground),
+            Move::new("Crunch".to_string(), 80, 100, Type::Dark),
+            Move::new("Giga Impact".to_string(), 150, 90, Type::Normal),
+        ],
+    );
+
+    let ash = Trainer::new(
+        "Ash",
+        vec![espeon, charizard, pikachu, totodile, breloom, snorlax],
+        1000,
+    );
 }
