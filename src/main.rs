@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub enum Type {
     Electric,
     Water,
@@ -19,18 +20,16 @@ pub enum Type {
     Fairy,
 }
 
-
-
 #[derive(Debug)]
 pub struct Move {
     pub name: String,
     pub damage: u32,
     pub accuracy: u32,
-    pub move_type: String,
+    pub move_type: Type,
 }
 
 impl Move {
-    pub fn new(name: String, damage: u32, accuracy: u32, move_type: String) -> Self {
+    pub fn new(name: String, damage: u32, accuracy: u32, move_type: Type) -> Self {
         Self {
             name,
             damage,
@@ -50,7 +49,7 @@ pub struct Pokemon {
     pub speed: u8,
     pub special_attack: u8,
     pub special_defense: u8,
-    pub types: Vec<String>,
+    pub types: Vec<Type>,
     pub moves: Vec<Move>,
 }
 
@@ -64,7 +63,7 @@ impl Pokemon {
         speed: u8,
         special_attack: u8,
         special_defense: u8,
-        types: Vec<String>,
+        types: Vec<Type>,
         moves: Vec<Move>,
     ) -> Self {
         Self {
@@ -92,12 +91,12 @@ fn main() {
         110,
         130,
         95,
-        vec!["Psychic".to_string()],
+        vec![Type::Psychic],
         vec![
-            Move::new("Psybeam".to_string(), 65, 100, "Psychic".to_string()),
-            Move::new("Psychic".to_string(), 90, 100, "Psychic".to_string()),
-            Move::new("Psyshock".to_string(), 80, 100, "Psychic".to_string()),
-            Move::new("Future Sight".to_string(), 120, 100, "Psychic".to_string()),
+            Move::new("Psybeam".to_string(), 65, 100, Type::Psychic),
+            Move::new("Psychic".to_string(), 90, 100, Type::Psychic),
+            Move::new("Psyshock".to_string(), 80, 100, Type::Psychic),
+            Move::new("Future Sight".to_string(), 120, 100, Type::Psychic),
         ],
     );
 
