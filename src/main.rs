@@ -81,6 +81,19 @@ impl Pokemon {
     }
 }
 
+#[derive(Debug)]
+struct Trainer {
+    name: &'static str,
+    team: Vec<Pokemon>,
+    money: i64,
+}
+
+impl Trainer {
+    pub fn new(name: &'static str, team: Vec<Pokemon>, money: i64) -> Self {
+        Self { name, team, money }
+    }
+}
+
 fn main() {
     let espeon = Pokemon::new(
         "Espeon".to_string(),
