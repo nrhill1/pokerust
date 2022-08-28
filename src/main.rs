@@ -1,3 +1,26 @@
+pub enum Type {
+    Electric,
+    Water,
+    Fire,
+    Dark,
+    Grass,
+    Normal,
+    Flying,
+    Poison,
+    Bug,
+    Ground,
+    Rock,
+    Ghost,
+    Steel,
+    Ice,
+    Dragon,
+    Psychic,
+    Fighting,
+    Fairy,
+}
+
+
+
 #[derive(Debug)]
 pub struct Move {
     pub name: String,
