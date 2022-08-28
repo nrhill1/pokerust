@@ -106,12 +106,12 @@ impl Battle {
     }
 
     pub fn start(&mut self) {
-        println!("{} vs {}", self.player.name, self.opponent.name);
+        println!("{} vs {}\n", self.player.name, self.opponent.name);
         println!("{}'s team:", self.player.name);
         for pokemon in &self.player.team {
             println!("{} - {}", pokemon.name, pokemon.level);
         }
-        println!("{}'s team:", self.opponent.name);
+        println!("\n{}'s team:", self.opponent.name);
         for pokemon in &self.opponent.team {
             println!("{} - {}", pokemon.name, pokemon.level);
         }
