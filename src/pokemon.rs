@@ -151,7 +151,7 @@ impl Battle {
 }
 
 
-pub fn nicolas_vs_ash() {
+pub fn nic_vs_ash() {
         let espeon = Pokemon::new(
         "Espeon".to_string(),
         50,
@@ -368,8 +368,8 @@ pub fn nicolas_vs_ash() {
         ],
     );
 
-    let nicolas = Trainer::new(
-        "Nicolas".to_string(),
+    let nic = Trainer::new(
+        "Nic".to_string(),
         vec![
             alolan_raichu,
             typhlosion,
@@ -387,7 +387,7 @@ pub fn nicolas_vs_ash() {
         10000000,
     );
 
-    let mut battle = Battle::new(ash, nicolas);
+    let mut battle = Battle::new(ash, nic);
 
     battle.start();
 }

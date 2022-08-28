@@ -1,5 +1,5 @@
 mod pokemon;
 
 fn main() {
-    pokemon::nicolas_vs_ash();
+    pokemon::nic_vs_ash();
 }
