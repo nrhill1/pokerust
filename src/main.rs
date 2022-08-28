@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Move {
     pub name: String,
     pub damage: u32,
@@ -16,6 +17,8 @@ impl Move {
     }
 }
 
+
+#[derive(Debug)]
 pub struct Pokemon {
     pub name: String,
     pub level: u8,
@@ -58,5 +61,23 @@ impl Pokemon {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let Espeon = Pokemon::new(
+        "Espeon".to_string(),
+        50,
+        65,
+        65,
+        60,
+        110,
+        130,
+        95,
+        vec!["Psychic".to_string()],
+        vec![
+            Move::new("Psybeam".to_string(), 65, 100, "Psychic".to_string()),
+            Move::new("Psychic".to_string(), 90, 100, "Psychic".to_string()),
+            Move::new("Psyshock".to_string(), 80, 100, "Psychic".to_string()),
+            Move::new("Future Sight".to_string(), 120, 100, "Psychic".to_string()),
+        ],
+    );
+
+    println!("{:#?}", Espeon);
 }
