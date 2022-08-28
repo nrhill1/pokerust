@@ -131,13 +131,8 @@ impl Battle {
         self.start();
         let mut player_pokemon = &mut self.player.team[0];
         let mut opponent_pokemon = &mut self.opponent.team[0];
-        println!(
-            "{} sent out {}!", self.player.name, player_pokemon.name
-        );
-        println!(
-            "{} sent out {}!",
-            self.opponent.name, opponent_pokemon.name
-        );
+        println!("{} sent out {}!", self.player.name, player_pokemon.name);
+        println!("{} sent out {}!", self.opponent.name, opponent_pokemon.name);
         // loop {
         //     self.attack(player_pokemon, opponent_pokemon, 0);
         //     if opponent_pokemon.hp == 0 {
