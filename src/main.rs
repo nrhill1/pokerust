@@ -85,12 +85,36 @@ impl Pokemon {
 struct Trainer {
     name: String,
     team: Vec<Pokemon>,
-    money: i64,
+    money: u64,
 }
 
 impl Trainer {
-    pub fn new(name: String, team: Vec<Pokemon>, money: i64) -> Self {
+    pub fn new(name: String, team: Vec<Pokemon>, money: u64) -> Self {
         Self { name, team, money }
+    }
+}
+
+#[derive(Debug)]
+struct Battle {
+    player: Trainer,
+    opponent: Trainer,
+}
+
+impl Battle {
+    pub fn new(player: Trainer, opponent: Trainer) -> Self {
+        Self { player, opponent }
+    }
+
+    pub fn start(&mut self) {
+        println!("{} vs {}", self.player.name, self.opponent.name);
+        println!("{}'s team:", self.player.name);
+        for pokemon in &self.player.team {
+            println!("{} - {}", pokemon.name, pokemon.level);
+        }
+        println!("{}'s team:", self.opponent.name);
+        for pokemon in &self.opponent.team {
+            println!("{} - {}", pokemon.name, pokemon.level);
+        }
     }
 }
 
@@ -203,9 +227,134 @@ fn main() {
         ],
     );
 
+    let alolan_raichu = Pokemon::new(
+        "Raichu-Alolan".to_string(),
+        50,
+        60,
+        85,
+        50,
+        110,
+        95,
+        85,
+        vec![Type::Electric, Type::Psychic],
+        vec![
+            Move::new("Thunderbolt".to_string(), 90, 100, Type::Electric),
+            Move::new("Thunder".to_string(), 110, 70, Type::Electric),
+            Move::new("Psychic".to_string(), 90, 100, Type::Psychic),
+            Move::new("Thunder Punch".to_string(), 75, 100, Type::Electric),
+        ],
+    );
+
+    let typhlosion = Pokemon::new(
+        "Typhlosion".to_string(),
+        50,
+        78,
+        84,
+        78,
+        100,
+        109,
+        85,
+        vec![Type::Fire],
+        vec![
+            Move::new("Flamethrower".to_string(), 90, 100, Type::Fire),
+            Move::new("Fire Blast".to_string(), 110, 85, Type::Fire),
+            Move::new("Eruption".to_string(), 150, 100, Type::Fire),
+            Move::new("Overheat".to_string(), 140, 90, Type::Fire),
+        ],
+    );
+
+    let dusknoir = Pokemon::new(
+        "Dusknoir".to_string(),
+        50,
+        45,
+        100,
+        135,
+        45,
+        65,
+        135,
+        vec![Type::Ghost],
+        vec![
+            Move::new("Shadow Punch".to_string(), 60, 100, Type::Ghost),
+            Move::new("Shadow Ball".to_string(), 80, 100, Type::Ghost),
+            Move::new("Ice Punch".to_string(), 75, 100, Type::Ice),
+            Move::new("Focus Blast".to_string(), 120, 70, Type::Fighting),
+        ],
+    );
+
+    let ampharos = Pokemon::new(
+        "Ampharos".to_string(),
+        50,
+        90,
+        75,
+        85,
+        115,
+        90,
+        55,
+        vec![Type::Electric],
+        vec![
+            Move::new("Thunderbolt".to_string(), 90, 100, Type::Electric),
+            Move::new("Thunder".to_string(), 110, 70, Type::Electric),
+            Move::new("Dragon Pulse".to_string(), 85, 100, Type::Dragon),
+            Move::new("Thunder Punch".to_string(), 75, 100, Type::Electric),
+        ],
+    );
+
+    let alolan_exeggutor = Pokemon::new(
+        "Exeggutor-Alolan".to_string(),
+        50,
+        95,
+        105,
+        85,
+        125,
+        75,
+        45,
+        vec![Type::Grass, Type::Dragon],
+        vec![
+            Move::new("Dragon Pulse".to_string(), 85, 100, Type::Dragon),
+            Move::new("Leaf Storm".to_string(), 130, 90, Type::Grass),
+            Move::new("Psychic".to_string(), 90, 100, Type::Psychic),
+            Move::new("Solar Beam".to_string(), 120, 100, Type::Grass),
+        ],
+    );
+
+    let swampert = Pokemon::new(
+        "Swampert".to_string(),
+        50,
+        100,
+        110,
+        90,
+        85,
+        90,
+        60,
+        vec![Type::Water, Type::Ground],
+        vec![
+            Move::new("Waterfall".to_string(), 80, 100, Type::Water),
+            Move::new("Hydro Pump".to_string(), 110, 80, Type::Water),
+            Move::new("Earthquake".to_string(), 100, 100, Type::Ground),
+            Move::new("Ice Punch".to_string(), 75, 100, Type::Ice),
+        ],
+    );
+
+    let nicolas = Trainer::new(
+        "Nicolas".to_string(),
+        vec![
+            alolan_raichu,
+            typhlosion,
+            dusknoir,
+            ampharos,
+            alolan_exeggutor,
+            swampert,
+        ],
+        8000000,
+    );
+
     let ash = Trainer::new(
         "Ash".to_string(),
         vec![espeon, charizard, pikachu, totodile, breloom, snorlax],
-        1000,
+        10000000,
     );
+
+    let mut battle = Battle::new(ash, nicolas);
+
+    battle.start();
 }
