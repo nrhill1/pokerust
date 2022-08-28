@@ -116,6 +116,24 @@ impl Battle {
             println!("{} - {}", pokemon.name, pokemon.level);
         }
     }
+
+    pub fn attack(&mut self, attacker: &mut Pokemon, defender: &mut Pokemon, move_index: usize) {
+        let move_ = &attacker.moves[move_index];
+        let damage = move_.damage;
+        defender.hp -= damage as u8;
+        println!(
+            "{} used {} on {} for {} damage!",
+            attacker.name, move_.name, defender.name, damage
+        );
+    }
+
+    pub fn battle(&mut self) {
+        self.start();
+        let mut player_pokemon = &mut self.player.team[0];
+        let mut opponent_pokemon = &mut self.opponent.team[0];
+        println!(
+            "{} sent out {}!", self.player.name, player_pokemon.name
+        );
 }
 
 fn main() {
