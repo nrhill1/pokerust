@@ -150,9 +150,8 @@ impl Battle {
     }
 }
 
-
 pub fn nic_vs_ash() {
-        let espeon = Pokemon::new(
+    let espeon = Pokemon::new(
         "Espeon".to_string(),
         50,
         65,
@@ -383,7 +382,14 @@ pub fn nic_vs_ash() {
 
     let ash = Trainer::new(
         "Ash".to_string(),
-        vec![espeon, charizard, pikachu, totodile, breloom, snorlax],
+        vec![
+            espeon, 
+            charizard, 
+            pikachu, 
+            totodile, 
+            breloom, 
+            snorlax,
+        ],
         10000000,
     );
 
