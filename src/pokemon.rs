@@ -1,6 +1,6 @@
-#![allow(dead_code)]
+#![allow(dead_code, unused_mut)]
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum Type {
     Electric,
     Water,
@@ -22,7 +22,7 @@ pub enum Type {
     Fairy,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Move {
     pub name: String,
     pub damage: u32,
@@ -41,7 +41,7 @@ impl Move {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Pokemon {
     pub name: String,
     pub level: u8,
