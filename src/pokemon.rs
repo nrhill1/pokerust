@@ -393,7 +393,7 @@ pub fn nic_vs_ash() {
         10000000, 
     );
     
-    let mut battle = Battle::new(ash, nic);
+    let mut nic_vs_ash = Battle::new(ash, nic);
 
-    battle.start();
+    nic_vs_ash.start();
 } 
