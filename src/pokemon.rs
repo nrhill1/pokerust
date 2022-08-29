@@ -86,13 +86,21 @@ impl Pokemon {
 #[derive(Debug)]
 struct Trainer {
     name: String,
-    team:  Vec<Pokemon>,
+    team: Vec<Pokemon>,
     money: u64,
 }
 
 impl Trainer {
     pub fn new(name: String, team: Vec<Pokemon>, money: u64) -> Self {
-        Self { name, team, money }
+        let mut _team = Vec::with_capacity(6);  
+        for pokemon in team {
+            _team.push(pokemon);
+        }
+        Self { name, team: _team, money }
+    }
+  
+    pub fn add_pokemon(&mut self, pokemon: Pokemon) {
+        self.team.push(pokemon);
     }
 }
 
