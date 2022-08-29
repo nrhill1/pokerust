@@ -377,7 +377,7 @@ pub fn nic_vs_ash() {
 
     let nic = Trainer::new(
         "Nic".to_string(),
-        vec![
+        vec![ 
             alolan_raichu,
             typhlosion,
             dusknoir,
