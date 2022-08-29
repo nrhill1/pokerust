@@ -86,7 +86,7 @@ impl Pokemon {
 #[derive(Debug)]
 struct Trainer {
     name: String,
-    team: Vec<Pokemon>,
+    team:  Vec<Pokemon>,
     money: u64,
 }
 
@@ -390,10 +390,10 @@ pub fn nic_vs_ash() {
             breloom, 
             snorlax,
         ],
-        10000000,
+        10000000, 
     );
-
+    
     let mut battle = Battle::new(ash, nic);
 
     battle.start();
-}
+} 
