@@ -127,11 +127,9 @@ impl Battle {
         }
     }
 
-    fn calculate_multiplier(attack: Move, defender: &Pokemon) -> f32 {
+    fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
         let multiplier: f32 = 1.0;
-        // for t in defender.types.into_iter() {
-
-        // }
+        for t in &defender.types {}
         multiplier
     }
 
