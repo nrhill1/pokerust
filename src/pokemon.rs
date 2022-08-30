@@ -129,7 +129,11 @@ impl Battle {
 
     fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
         let multiplier: f32 = 1.0;
-        for t in &defender.types {}
+        for t in &defender.types {
+            // match attack.move_type {
+            //     Type::Electric 
+            // }
+        }
         multiplier
     }
 
