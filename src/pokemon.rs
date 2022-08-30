@@ -130,9 +130,26 @@ impl Battle {
     fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
         let multiplier: f32 = 1.0;
         for t in &defender.types {
-            // match attack.move_type {
-            //     Type::Electric 
-            // }
+            match attack.move_type {
+                Type::Electric => {}
+                Type::Water => {}
+                Type::Fire => {}
+                Type::Dark => {}
+                Type::Grass => {}
+                Type::Normal => {}
+                Type::Flying => {}
+                Type::Poison => {}
+                Type::Bug => {}
+                Type::Ground => {}
+                Type::Rock => {}
+                Type::Ghost => {}
+                Type::Steel => {}
+                Type::Ice => {}
+                Type::Dragon => {}
+                Type::Psychic => {}
+                Type::Fighting => {}
+                Type::Fairy => {}
+            }
         }
         multiplier
     }
@@ -153,18 +170,18 @@ impl Battle {
         let mut opponent_pokemon = &mut self.opponent.team[0];
         println!("{} sent out {}!", self.player.name, player_pokemon.name);
         println!("{} sent out {}!", self.opponent.name, opponent_pokemon.name);
-        loop {
-            self.attack(player_pokemon, opponent_pokemon, 0);
-            if opponent_pokemon.hp == 0 {
-                println!("{} fainted!", opponent_pokemon.name);
-                break;
-            }
-            self.attack(opponent_pokemon, player_pokemon, 0);
-            if player_pokemon.hp == 0 {
-                println!("{} fainted!", player_pokemon.name);
-                break;
-            }
-        }
+        // loop {
+        //     self.attack(player_pokemon, opponent_pokemon, 0);
+        //     if opponent_pokemon.hp == 0 {
+        //         println!("{} fainted!", opponent_pokemon.name);
+        //         break;
+        //     }
+        //     self.attack(opponent_pokemon, player_pokemon, 0);
+        //     if player_pokemon.hp == 0 {
+        //         println!("{} fainted!", player_pokemon.name);
+        //         break;
+        //     }
+        // }
     }
 }
 
