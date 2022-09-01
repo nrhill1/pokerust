@@ -343,6 +343,8 @@ impl Battle {
 }
 
 pub fn nic_vs_ash() {
+
+    // Ash's Team 
     let espeon = Pokemon::new(
         "Espeon".to_string(),
         50,
@@ -451,6 +453,9 @@ pub fn nic_vs_ash() {
         ],
     );
 
+
+    
+    // Nic's team
     let alolan_raichu = Pokemon::new(
         "Raichu-Alolan".to_string(),
         50,
