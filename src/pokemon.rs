@@ -350,7 +350,7 @@ impl Battle {
 
     pub fn attack(&mut self, attacker: &mut Pokemon, defender: &mut Pokemon, move_index: usize) {
         let move_ = &attacker.moves[move_index];
-        let damage = move_.damage;
+        let damage = calculate_multiplier(move_, &defender) ;
         defender.hp -= damage as u8;
         println!(
             "{} used {} on {} for {} damage!",
