@@ -1,26 +1,6 @@
 #![allow(dead_code, unused_mut)]
+use crate::pokemon::Type;
 
-#[derive(Debug, Clone, Copy)]
-pub enum Type {
-    Electric,
-    Water,
-    Fire,
-    Dark,
-    Grass,
-    Normal,
-    Flying,
-    Poison,
-    Bug,
-    Ground,
-    Rock,
-    Ghost,
-    Steel,
-    Ice,
-    Dragon,
-    Psychic,
-    Fighting,
-    Fairy,
-}
 
 #[derive(Debug, Clone)]
 pub struct Move {
@@ -127,32 +107,7 @@ impl Battle {
         }
     }
 
-    fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
-        let multiplier: f32 = 1.0;
-        for t in &defender.types {
-            match attack.move_type {
-                Type::Electric => {}
-                Type::Water => {}
-                Type::Fire => {}
-                Type::Dark => {}
-                Type::Grass => {}
-                Type::Normal => {}
-                Type::Flying => {}
-                Type::Poison => {}
-                Type::Bug => {}
-                Type::Ground => {}
-                Type::Rock => {}
-                Type::Ghost => {}
-                Type::Steel => {}
-                Type::Ice => {}
-                Type::Dragon => {}
-                Type::Psychic => {}
-                Type::Fighting => {}
-                Type::Fairy => {}
-            }
-        }
-        multiplier
-    }
+
 
     pub fn attack(&mut self, attacker: &mut Pokemon, defender: &mut Pokemon, move_index: usize) {
         let move_ = &attacker.moves[move_index];
