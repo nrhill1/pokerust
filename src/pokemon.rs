@@ -24,9 +24,8 @@ pub enum Type {
 
 // fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
 //     let mut multiplier: f32 = 1.0;
-//     let def_types = defender.types;
 //     let att_type = attack.move_type;
-//     for t in def_types {
+//     for t in defender.types {
 //         match att_type {
 //             Type::Electric => {
 //                 match t {
