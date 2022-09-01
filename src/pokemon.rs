@@ -27,218 +27,181 @@ fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
     let att_type = attack.move_type;
     for t in defender.types.clone() {
         match att_type {
-            Type::Electric => {
-                match t {
-                    Type::Ground => multiplier * 0.0,
-                    Type::Flying => multiplier * 2.0,
-                    Type::Water => multiplier * 2.0,
-                    Type::Grass => multiplier * 0.5,
-                    Type::Electric => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Water => {
-                match t {
-                    Type::Fire => multiplier * 2.0,
-                    Type::Ground => multiplier * 2.0,
-                    Type::Rock => multiplier * 2.0,
-                    Type::Water => multiplier * 0.5,
-                    Type::Grass => multiplier * 0.5,
-                    Type::Dragon => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Fire => {
-                match t {
-                    Type::Fire => multiplier * 0.5,
-                    Type::Water => multiplier * 0.5,
-                    Type::Grass => multiplier * 2.0,
-                    Type::Ice => multiplier * 2.0,
-                    Type::Bug => multiplier * 2.0,
-                    Type::Rock => multiplier * 0.5,
-                    Type::Dragon => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Dark => {
-                match t {
-                    Type::Fighting => multiplier * 2.0,
-                    Type::Dark => multiplier * 0.5,
-                    Type::Ghost => multiplier * 0.5,
-                    Type::Psychic => multiplier * 0.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Grass => {
-                match t {
-                    Type::Water => multiplier * 2.0,
-                    Type::Ground => multiplier * 2.0,
-                    Type::Rock => multiplier * 2.0,
-                    Type::Fire => multiplier * 0.5,
-                    Type::Grass => multiplier * 0.5,
-                    Type::Poison => multiplier * 0.5,
-                    Type::Flying => multiplier * 0.5,
-                    Type::Bug => multiplier * 0.5,
-                    Type::Dragon => multiplier * 0.5,
-                    Type::Steel => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Normal => {
-                match t {
-                    Type::Rock => multiplier * 0.5,
-                    Type::Steel => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Flying => {
-                match t {
-                    Type::Electric => multiplier * 0.5,
-                    Type::Rock => multiplier * 2.0,
-                    Type::Steel => multiplier * 0.5,
-                    Type::Grass => multiplier * 2.0,
-                    Type::Fighting => multiplier * 2.0,
-                    Type::Bug => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Poison => {
-                match t {
-                    Type::Grass => multiplier * 2.0,
-                    Type::Fairy => multiplier * 2.0,
-                    Type::Fighting => multiplier * 0.5,
-                    Type::Poison => multiplier * 0.5,
-                    Type::Bug => multiplier * 0.5,
-                    Type::Psychic => multiplier * 0.5,
-                    Type::Ghost => multiplier * 0.5,
-                    Type::Steel => multiplier * 0.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Bug => {
-                match t {
-                    Type::Grass => multiplier * 2.0,
-                    Type::Fighting => multiplier * 0.5,
-                    Type::Poison => multiplier * 0.5,
-                    Type::Flying => multiplier * 2.0,
-                    Type::Ghost => multiplier * 0.5,
-                    Type::Steel => multiplier * 0.5,
-                    Type::Fire => multiplier * 0.5,
-                    Type::Psychic => multiplier * 2.0,
-                    Type::Dark => multiplier * 2.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Ground => {
-                match t {
-                    Type::Poison => multiplier * 0.5,
-                    Type::Rock => multiplier * 0.5,
-                    Type::Steel => multiplier * 2.0,
-                    Type::Fire => multiplier * 2.0,
-                    Type::Electric => multiplier * 2.0,
-                    Type::Grass => multiplier * 0.5,
-                    Type::Flying => multiplier * 0.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Rock => {
-                match t {
-                    Type::Normal => multiplier * 0.5,
-                    Type::Flying => multiplier * 0.5,
-                    Type::Poison => multiplier * 0.5,
-                    Type::Fire => multiplier * 2.0,
-                    Type::Ice => multiplier * 2.0,
-                    Type::Fighting => multiplier * 2.0,
-                    Type::Ground => multiplier * 2.0,
-                    Type::Steel => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Ghost => {
-                match t {
-                    Type::Normal => multiplier * 0.0,
-                    Type::Ghost => multiplier * 2.0,
-                    Type::Psychic => multiplier * 2.0,
-                    Type::Dark => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Steel => {
-                match t {
-                    Type::Normal => multiplier * 0.5,
-                    Type::Flying => multiplier * 2.0,
-                    Type::Poison => multiplier * 0.0,
-                    Type::Rock => multiplier * 2.0,
-                    Type::Steel => multiplier * 0.5,
-                    Type::Fire => multiplier * 0.5,
-                    Type::Water => multiplier * 0.5,
-                    Type::Electric => multiplier * 0.5,
-                    Type::Ice => multiplier * 2.0,
-                    Type::Bug => multiplier * 2.0,
-                    Type::Dragon => multiplier * 2.0,
-                    Type::Fairy => multiplier * 2.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Ice => {
-                match t {
-                    Type::Ice => multiplier * 0.5,
-                    Type::Steel => multiplier * 0.5,
-                    Type::Fire => multiplier * 0.5,
-                    Type::Fighting => multiplier * 2.0,
-                    Type::Rock => multiplier * 2.0,
-                    Type::Steel => multiplier * 2.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Dragon => {
-                match t {
-                    Type::Dragon => multiplier * 2.0,
-                    Type::Steel => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Psychic => {
-                match t {
-                    Type::Fighting => multiplier * 2.0,
-                    Type::Psychic => multiplier * 0.5,
-                    Type::Dark => multiplier * 0.0,
-                    _ => multiplier,
-                }
-            }
-            Type::Fighting => {
-                match t {
-                    Type::Normal => multiplier * 2.0,
-                    Type::Flying => multiplier * 0.5,
-                    Type::Poison => multiplier * 0.5,
-                    Type::Rock => multiplier * 0.5,
-                    Type::Bug => multiplier * 0.5,
-                    Type::Ghost => multiplier * 0.0,
-                    Type::Steel => multiplier * 2.0,
-                    Type::Psychic => multiplier * 0.5,
-                    Type::Ice => multiplier * 2.0,
-                    Type::Dark => multiplier * 2.0,
-                    Type::Fairy => multiplier * 0.5,
-                    _ => multiplier,
-                }
-            }
-            Type::Fairy => {
-                match t {
-                    Type::Fighting => multiplier * 2.0,
-                    Type::Poison => multiplier * 2.0,
-                    Type::Bug => multiplier * 0.5,
-                    Type::Steel => multiplier * 0.5,
-                    Type::Fire => multiplier * 0.5,
-                    Type::Dark => multiplier * 2.0,
-                    Type::Dragon => multiplier * 0.0,
-                    _ => multiplier,
-                }
-            }
+            Type::Electric => match t {
+                Type::Ground => multiplier * 0.0,
+                Type::Flying => multiplier * 2.0,
+                Type::Water => multiplier * 2.0,
+                Type::Grass => multiplier * 0.5,
+                Type::Electric => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Water => match t {
+                Type::Fire => multiplier * 2.0,
+                Type::Ground => multiplier * 2.0,
+                Type::Rock => multiplier * 2.0,
+                Type::Water => multiplier * 0.5,
+                Type::Grass => multiplier * 0.5,
+                Type::Dragon => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Fire => match t {
+                Type::Fire => multiplier * 0.5,
+                Type::Water => multiplier * 0.5,
+                Type::Grass => multiplier * 2.0,
+                Type::Ice => multiplier * 2.0,
+                Type::Bug => multiplier * 2.0,
+                Type::Rock => multiplier * 0.5,
+                Type::Dragon => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Dark => match t {
+                Type::Fighting => multiplier * 2.0,
+                Type::Dark => multiplier * 0.5,
+                Type::Ghost => multiplier * 0.5,
+                Type::Psychic => multiplier * 0.0,
+                _ => multiplier,
+            },
+            Type::Grass => match t {
+                Type::Water => multiplier * 2.0,
+                Type::Ground => multiplier * 2.0,
+                Type::Rock => multiplier * 2.0,
+                Type::Fire => multiplier * 0.5,
+                Type::Grass => multiplier * 0.5,
+                Type::Poison => multiplier * 0.5,
+                Type::Flying => multiplier * 0.5,
+                Type::Bug => multiplier * 0.5,
+                Type::Dragon => multiplier * 0.5,
+                Type::Steel => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Normal => match t {
+                Type::Rock => multiplier * 0.5,
+                Type::Steel => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Flying => match t {
+                Type::Electric => multiplier * 0.5,
+                Type::Rock => multiplier * 2.0,
+                Type::Steel => multiplier * 0.5,
+                Type::Grass => multiplier * 2.0,
+                Type::Fighting => multiplier * 2.0,
+                Type::Bug => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Poison => match t {
+                Type::Grass => multiplier * 2.0,
+                Type::Fairy => multiplier * 2.0,
+                Type::Fighting => multiplier * 0.5,
+                Type::Poison => multiplier * 0.5,
+                Type::Bug => multiplier * 0.5,
+                Type::Psychic => multiplier * 0.5,
+                Type::Ghost => multiplier * 0.5,
+                Type::Steel => multiplier * 0.0,
+                _ => multiplier,
+            },
+            Type::Bug => match t {
+                Type::Grass => multiplier * 2.0,
+                Type::Fighting => multiplier * 0.5,
+                Type::Poison => multiplier * 0.5,
+                Type::Flying => multiplier * 2.0,
+                Type::Ghost => multiplier * 0.5,
+                Type::Steel => multiplier * 0.5,
+                Type::Fire => multiplier * 0.5,
+                Type::Psychic => multiplier * 2.0,
+                Type::Dark => multiplier * 2.0,
+                _ => multiplier,
+            },
+            Type::Ground => match t {
+                Type::Poison => multiplier * 0.5,
+                Type::Rock => multiplier * 0.5,
+                Type::Steel => multiplier * 2.0,
+                Type::Fire => multiplier * 2.0,
+                Type::Electric => multiplier * 2.0,
+                Type::Grass => multiplier * 0.5,
+                Type::Flying => multiplier * 0.0,
+                _ => multiplier,
+            },
+            Type::Rock => match t {
+                Type::Normal => multiplier * 0.5,
+                Type::Flying => multiplier * 0.5,
+                Type::Poison => multiplier * 0.5,
+                Type::Fire => multiplier * 2.0,
+                Type::Ice => multiplier * 2.0,
+                Type::Fighting => multiplier * 2.0,
+                Type::Ground => multiplier * 2.0,
+                Type::Steel => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Ghost => match t {
+                Type::Normal => multiplier * 0.0,
+                Type::Ghost => multiplier * 2.0,
+                Type::Psychic => multiplier * 2.0,
+                Type::Dark => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Steel => match t {
+                Type::Normal => multiplier * 0.5,
+                Type::Flying => multiplier * 2.0,
+                Type::Poison => multiplier * 0.0,
+                Type::Rock => multiplier * 2.0,
+                Type::Steel => multiplier * 0.5,
+                Type::Fire => multiplier * 0.5,
+                Type::Water => multiplier * 0.5,
+                Type::Electric => multiplier * 0.5,
+                Type::Ice => multiplier * 2.0,
+                Type::Bug => multiplier * 2.0,
+                Type::Dragon => multiplier * 2.0,
+                Type::Fairy => multiplier * 2.0,
+                _ => multiplier,
+            },
+            Type::Ice => match t {
+                Type::Ice => multiplier * 0.5,
+                Type::Steel => multiplier * 0.5,
+                Type::Fire => multiplier * 0.5,
+                Type::Fighting => multiplier * 2.0,
+                Type::Rock => multiplier * 2.0,
+                Type::Steel => multiplier * 2.0,
+                _ => multiplier,
+            },
+            Type::Dragon => match t {
+                Type::Dragon => multiplier * 2.0,
+                Type::Steel => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Psychic => match t {
+                Type::Fighting => multiplier * 2.0,
+                Type::Psychic => multiplier * 0.5,
+                Type::Dark => multiplier * 0.0,
+                _ => multiplier,
+            },
+            Type::Fighting => match t {
+                Type::Normal => multiplier * 2.0,
+                Type::Flying => multiplier * 0.5,
+                Type::Poison => multiplier * 0.5,
+                Type::Rock => multiplier * 0.5,
+                Type::Bug => multiplier * 0.5,
+                Type::Ghost => multiplier * 0.0,
+                Type::Steel => multiplier * 2.0,
+                Type::Psychic => multiplier * 0.5,
+                Type::Ice => multiplier * 2.0,
+                Type::Dark => multiplier * 2.0,
+                Type::Fairy => multiplier * 0.5,
+                _ => multiplier,
+            },
+            Type::Fairy => match t {
+                Type::Fighting => multiplier * 2.0,
+                Type::Poison => multiplier * 2.0,
+                Type::Bug => multiplier * 0.5,
+                Type::Steel => multiplier * 0.5,
+                Type::Fire => multiplier * 0.5,
+                Type::Dark => multiplier * 2.0,
+                Type::Dragon => multiplier * 0.0,
+                _ => multiplier,
+            },
         };
-    };
+    }
     multiplier
 }
-
 
 #[derive(Debug, Clone)]
 pub struct Move {
@@ -247,7 +210,6 @@ pub struct Move {
     pub accuracy: u32,
     pub move_type: Type,
 }
-
 
 impl Move {
     pub fn new(name: String, damage: u32, accuracy: u32, move_type: Type) -> Self {
@@ -311,11 +273,15 @@ struct Trainer {
 
 impl Trainer {
     pub fn new(name: String, team: Vec<Pokemon>, money: u64) -> Self {
-        let mut _team = Vec::with_capacity(6);  
+        let mut _team = Vec::with_capacity(6);
         for pokemon in team {
             _team.push(pokemon);
         }
-        Self { name, team: _team, money }
+        Self {
+            name,
+            team: _team,
+            money,
+        }
     }
 
     pub fn add_pokemon(&mut self, pokemon: Pokemon) {
@@ -346,11 +312,9 @@ impl Battle {
         }
     }
 
-
-
     pub fn attack(&mut self, attacker: &mut Pokemon, defender: &mut Pokemon, move_index: usize) {
         let move_ = &attacker.moves[move_index];
-        let damage = calculate_multiplier(move_, &defender) ;
+        let damage = calculate_multiplier(move_, &defender);
         defender.hp -= damage as u8;
         println!(
             "{} used {} on {} for {} damage!",
@@ -364,18 +328,18 @@ impl Battle {
         let mut opponent_pokemon = &mut self.opponent.team[0];
         println!("{} sent out {}!", self.player.name, player_pokemon.name);
         println!("{} sent out {}!", self.opponent.name, opponent_pokemon.name);
-        // loop {
-        //     self.attack(player_pokemon, opponent_pokemon, 0);
-        //     if opponent_pokemon.hp == 0 {
-        //         println!("{} fainted!", opponent_pokemon.name);
-        //         break;
-        //     }
-        //     self.attack(opponent_pokemon, player_pokemon, 0);
-        //     if player_pokemon.hp == 0 {
-        //         println!("{} fainted!", player_pokemon.name);
-        //         break;
-        //     }
-        // }
+        loop {
+            self.attack(player_pokemon, opponent_pokemon, 0);
+            if opponent_pokemon.hp == 0 {
+                println!("{} fainted!", opponent_pokemon.name);
+                break;
+            }
+            self.attack(opponent_pokemon, player_pokemon, 0);
+            if player_pokemon.hp == 0 {
+                println!("{} fainted!", player_pokemon.name);
+                break;
+            }
+        }
     }
 }
 
@@ -598,7 +562,7 @@ pub fn nic_vs_ash() {
 
     let nic = Trainer::new(
         "Nic".to_string(),
-        vec![ 
+        vec![
             alolan_raichu,
             typhlosion,
             dusknoir,
@@ -617,12 +581,12 @@ pub fn nic_vs_ash() {
             pikachu, 
             totodile, 
             breloom, 
-            snorlax,
+            snorlax
         ],
-        10000000, 
+        10000000,
     );
-    
+
     let mut nic_vs_ash = Battle::new(ash, nic);
 
     nic_vs_ash.start();
-} 
+}
