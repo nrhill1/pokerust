@@ -160,7 +160,6 @@ fn calculate_multiplier(attack: &Move, defender: &Pokemon) -> f32 {
                 Type::Fire => multiplier * 0.5,
                 Type::Fighting => multiplier * 2.0,
                 Type::Rock => multiplier * 2.0,
-                Type::Steel => multiplier * 2.0,
                 _ => multiplier,
             },
             Type::Dragon => match t {
