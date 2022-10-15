@@ -344,7 +344,7 @@ impl Battle {
 
 pub fn nic_vs_ash() {
 
-    // Ash's Team 
+    // Ash's Team
     let espeon = Pokemon::new(
         "Espeon".to_string(),
         50,
@@ -423,7 +423,7 @@ pub fn nic_vs_ash() {
         60,
         130,
         80,
-        70,
+        70, 
         60,
         60,
         vec![Type::Grass, Type::Fighting],
@@ -454,7 +454,7 @@ pub fn nic_vs_ash() {
     );
 
 
-    
+
     // Nic's team
     let alolan_raichu = Pokemon::new(
         "Raichu-Alolan".to_string(),
@@ -580,11 +580,11 @@ pub fn nic_vs_ash() {
     let ash = Trainer::new(
         "Ash".to_string(),
         vec![
-            espeon, 
-            charizard, 
-            pikachu, 
-            totodile, 
-            breloom, 
+            espeon,
+            charizard,
+            pikachu,
+            totodile,
+            breloom,
             snorlax
         ],
         10000000,
