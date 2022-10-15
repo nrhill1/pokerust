@@ -290,19 +290,25 @@ impl Trainer {
 
 struct PC {
     box_count: u8,
-    boxes: Vec<Box>,
+    boxes: Vec<PcBox>,
     owner: Trainer,
 }
 
-struct Box {
+struct PcBox {
     pokemon: Vec<Pokemon>,
+}
+
+impl PcBox {
+    pub fn new(pokemon: Vec<Pokemon>) -> Self {
+        Self { pokemon }
+    }
 }
 
 impl PC {
     pub fn new(owner: Trainer) -> Self {
         Self {
             box_count: 1,
-            boxes: vec![Box {
+            boxes: vec![PcBox {
                 pokemon: Vec::with_capacity(30),
             }],
             owner,
@@ -312,7 +318,7 @@ impl PC {
     pub fn deposit(&mut self, pokemon: Pokemon) {
         if self.boxes[self.box_count as usize - 1].pokemon.len() == 30 {
             self.box_count += 1;
-            self.boxes.push(Box {
+            self.boxes.push(PcBox {
                 pokemon: Vec::with_capacity(30),
             });
         }
@@ -334,6 +340,7 @@ struct Battle {
 }
 
 impl Battle {
+
     pub fn new(player: Trainer, opponent: Trainer) -> Self {
         Self { player, opponent }
     }
