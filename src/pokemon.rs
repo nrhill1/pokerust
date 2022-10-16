@@ -288,10 +288,10 @@ impl Trainer {
     }
 }
 
-struct PC {
+struct PC<'a> {
     box_count: u8,
     boxes: Vec<PcBox>,
-    owner: Trainer,
+    owner: &'a mut Trainer,
 }
 
 struct PcBox {
@@ -304,8 +304,8 @@ impl PcBox {
     }
 }
 
-impl PC {
-    pub fn new(owner: Trainer) -> Self {
+impl<'a> PC<'a> {
+    pub fn new (owner: &'a mut Trainer) -> Self {
         Self {
             box_count: 1,
             boxes: vec![PcBox {
@@ -315,23 +315,30 @@ impl PC {
         }
     }
 
-    pub fn deposit(&mut self, pokemon: Pokemon) {
+    pub fn deposit(&mut self) {
         if self.boxes[self.box_count as usize - 1].pokemon.len() == 30 {
             self.box_count += 1;
             self.boxes.push(PcBox {
                 pokemon: Vec::with_capacity(30),
             });
         }
-        self.boxes[self.box_count as usize - 1].pokemon.push(pokemon);
+        self.boxes[self.box_count as usize - 1].pokemon.push(self.owner.team.pop().unwrap());
 }
 
-    pub fn withdraw(&mut self, index: usize) -> Pokemon {
+    pub fn withdraw(&mut self, index: usize) {
         let pokemon = self.boxes[self.box_count as usize - 1].pokemon.remove(index);
-        pokemon
+        self.owner.team.push(pokemon);
+    }
+
+    pub fn switch_box(&mut self, index: usize) {
+        self.box_count = index as u8;
+    }
+
+    pub fn get_box(&self) -> &PcBox {
+        &self.boxes[self.box_count as usize - 1]
     }
 
 }
-
 
 #[derive(Debug)]
 struct Battle {
@@ -388,7 +395,7 @@ impl Battle {
     }
 }
 
-pub fn nic_vs_ash() {
+pub fn main() {
 
     // Ash's Team
     let espeon = Pokemon::new(
@@ -610,7 +617,7 @@ pub fn nic_vs_ash() {
         ],
     );
 
-    let nic = Trainer::new(
+    let mut nic = Trainer::new(
         "Nic".to_string(),
         vec![
             alolan_raichu,
@@ -623,7 +630,7 @@ pub fn nic_vs_ash() {
         8000000,
     );
 
-    let ash = Trainer::new(
+    let mut ash = Trainer::new(
         "Ash".to_string(),
         vec![
             espeon,
@@ -636,7 +643,21 @@ pub fn nic_vs_ash() {
         10000000,
     );
 
+    let mut nic_pc = PC::new(& mut nic);
+
+    nic_pc.deposit();
+    nic_pc.deposit();
+    nic_pc.deposit();
+    nic_pc.deposit();
+    nic_pc.deposit();
+
+
+
+
     let mut nic_vs_ash = Battle::new(ash, nic);
 
     nic_vs_ash.start();
+
+
+
 }
