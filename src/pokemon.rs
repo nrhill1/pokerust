@@ -509,7 +509,7 @@ pub fn main() {
 
 
     // Nic's team
-    let alolan_raichu = Pokemon::new(
+    let raichu_alolan = Pokemon::new(
         "Raichu-Alolan".to_string(),
         50,
         60,
@@ -581,7 +581,7 @@ pub fn main() {
         ],
     );
 
-    let alolan_exeggutor = Pokemon::new(
+    let exeggutor_alolan = Pokemon::new(
         "Exeggutor-Alolan".to_string(),
         50,
         95,
@@ -620,11 +620,11 @@ pub fn main() {
     let mut nic = Trainer::new(
         "Nic".to_string(),
         vec![
-            alolan_raichu,
+            raichu_alolan,
             typhlosion,
             dusknoir,
             ampharos,
-            alolan_exeggutor,
+            exeggutor_alolan,
             swampert,
         ],
         8000000,
@@ -650,6 +650,14 @@ pub fn main() {
     nic_pc.deposit();
     nic_pc.deposit();
     nic_pc.deposit();
+    nic_pc.withdraw(1);
+    nic_pc.withdraw(1);
+    nic_pc.withdraw(1);
+    nic_pc.withdraw(1);
+    nic_pc.withdraw(1);
+
+
+
 
     let mut nic_vs_ash = Battle::new(&mut ash, &mut nic);
 
