@@ -342,13 +342,13 @@ impl<'a> PC<'a> {
 
 #[derive(Debug)]
 struct Battle<'a> {
-    player: &'a Trainer,
-    opponent: &'a Trainer,
+    player: &'a mut Trainer,
+    opponent: &'a mut Trainer,
 }
 
 impl<'a> Battle<'a> {
 
-    pub fn new(player: &Trainer, opponent: &Trainer) -> Self {
+    pub fn new(player: &'a mut Trainer, opponent: &'a mut Trainer) -> Self {
         Self { player, opponent }
     }
 
@@ -651,9 +651,10 @@ pub fn main() {
     nic_pc.deposit();
     nic_pc.deposit();
 
-    let mut nic_vs_ash = Battle::new(&ash, &nic);
+    let mut nic_vs_ash = Battle::new(&mut ash, &mut nic);
 
     nic_vs_ash.start();
+
 
 
 
